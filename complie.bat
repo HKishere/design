@@ -1,5 +1,5 @@
 @echo off
-REM 这里把UV设置成Keil安装地址
+REM 这里把UV设置成Keil安�?�地址
 set UV=G:\Keil_v5\UV4\UV4.exe
 if "%1" == "" goto NOP
 set UV_PRO_PATH=%cd%\USER\%1.uvprojX
@@ -32,6 +32,3 @@ goto end
 
 :end
 exit
-————————————————
-版权声明：本文为CSDN博主「while0l1」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/while0l1/article/details/102469592
