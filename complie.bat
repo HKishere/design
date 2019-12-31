@@ -1,8 +1,8 @@
 @echo off
-REM 杩欓噷鎶奤V璁剧疆鎴怟eil瀹夎?呭湴鍧�
+REM 这里把UV设置成Keil安装地址
 set UV=G:\Keil_v5\UV4\UV4.exe
 if "%1" == "" goto NOP
-set UV_PRO_PATH=%cd%\USER\%1.uvprojX
+set UV_PRO_PATH=%cd%\USER\%1.uvprojx
 if "%2" == "-b" (
     echo Init building ... 
     %UV% -j0 -b %UV_PRO_PATH% -o %cd%\build_log.txt 

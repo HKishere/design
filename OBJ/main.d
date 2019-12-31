@@ -34,4 +34,4 @@
 ..\obj\main.o: ..\GECLIB\inc\stm32f4xx_dac.h
 ..\obj\main.o: ..\GECLIB\inc\stm32f4xx_dcmi.h
 ..\obj\main.o: ..\GECLIB\inc\stm32f4xx_fsmc.h
-..\obj\main.o: ..\GECCODE\light.h
+..\obj\main.o: ..\GECCODE\led.h
