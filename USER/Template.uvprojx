@@ -628,6 +628,11 @@
               <FileType>1</FileType>
               <FilePath>..\GECCODE\key.c</FilePath>
             </File>
+            <File>
+              <FileName>exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\GECCODE\exti.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
