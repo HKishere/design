@@ -2,7 +2,7 @@
 ..\obj\key.o: ..\GECCODE\key.h
 ..\obj\key.o: ..\USER\stm32f4xx.h
 ..\obj\key.o: ..\CODE\core_cm4.h
-..\obj\key.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\key.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\key.o: ..\CODE\core_cmInstr.h
 ..\obj\key.o: ..\CODE\core_cmFunc.h
 ..\obj\key.o: ..\CODE\core_cm4_simd.h

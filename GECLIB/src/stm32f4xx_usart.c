@@ -1309,6 +1309,7 @@ FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG)
   {
     bitstatus = SET;
   }
+	
   else
   {
     bitstatus = RESET;
