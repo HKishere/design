@@ -2,7 +2,7 @@
 ..\obj\stm32f4xx_sai.o: ..\GECLIB\inc\stm32f4xx_sai.h
 ..\obj\stm32f4xx_sai.o: ..\USER\stm32f4xx.h
 ..\obj\stm32f4xx_sai.o: ..\CODE\core_cm4.h
-..\obj\stm32f4xx_sai.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\stm32f4xx_sai.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\stm32f4xx_sai.o: ..\CODE\core_cmInstr.h
 ..\obj\stm32f4xx_sai.o: ..\CODE\core_cmFunc.h
 ..\obj\stm32f4xx_sai.o: ..\CODE\core_cm4_simd.h

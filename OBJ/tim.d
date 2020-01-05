@@ -2,7 +2,7 @@
 ..\obj\tim.o: ..\GECCODE\tim.h
 ..\obj\tim.o: ..\USER\stm32f4xx.h
 ..\obj\tim.o: ..\CODE\core_cm4.h
-..\obj\tim.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\tim.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\tim.o: ..\CODE\core_cmInstr.h
 ..\obj\tim.o: ..\CODE\core_cmFunc.h
 ..\obj\tim.o: ..\CODE\core_cm4_simd.h

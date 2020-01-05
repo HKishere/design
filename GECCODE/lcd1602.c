@@ -4,8 +4,8 @@
 //#include <stdio.h>
 
 //全局变量定义
-unsigned char const table1[]="     WELCOME   ";
-unsigned char const table2[]="      SUST     ";
+unsigned char const table1[]="     WELCOME    ";
+unsigned char const table2[]="      SUST      ";
 
 
 
@@ -160,7 +160,8 @@ void lcd1602_init(void)
 	{
 		lcd_write_dat(table2[index]);  //写入数据             
 	}
-	
+	delay_ms(100);//延时一段时间时间，等待LCD1602稳定	
+	LcdWriteCom(0x01);//清屏  
 }
 
 /*******************************************************************************
@@ -178,20 +179,83 @@ void LCD1602WriteCommand(char comm)
 void LCD1602WriteSpeed(unsigned char fl,unsigned char fr)
 {
 	char data_buf[4];
-	int index=0;
-	
+	int index = 0;
+
 	data_buf[3] = 0;
-	sprintf(data_buf,"%03d",(int)fl);
+	sprintf(data_buf, "%03d", (int)fl);
 	LcdWriteCom(0x80+3);//设置第一行 数据地址指针
-	for(index=0;index<3;index++)
+	for (index = 0; index < 3; index++)
+	{
+		lcd_write_dat(data_buf[index]); //写入数据
+	}
+
+	sprintf(data_buf, "%03d", (int)fr);
+	LcdWriteCom(0xc0 + 3); //设置第一行 数据地址指针
+	for (index = 0; index < 3; index++)
 	{
 		lcd_write_dat(data_buf[index]);  //写入数据             
 	}
-	
-	sprintf(data_buf,"%03d",(int)fr);
-	LcdWriteCom(0xc0+3);//设置第一行 数据地址指针
-	for(index=0;index<3;index++)
+}
+//show char to a confirm row
+//row = 1 show in first row , row = 2 show in second row 
+//col =[0~15], col is the Longitudinal offset
+//int_data is data of temputrue or others
+void LCD1602Write_In_A_Row(int row, int col, unsigned char data){
+	if (row == 1)
 	{
-		lcd_write_dat(data_buf[index]);  //写入数据             
+		unsigned char data_buf[4];
+		int index = 0;
+
+		data_buf[3] = 0;
+		LcdWriteCom(0x80 + col);
+		sprintf(data_buf, "%03d", (int)data);
+		for (index = 0; index < 3; index++)
+		{
+			lcd_write_dat(data_buf[index]); //写入数据
+		}
+	}
+	else if (row == 2)
+	{
+		unsigned char data_buf[4];
+		int index = 0;
+
+		data_buf[3] = 0;
+		LcdWriteCom(0xc0 + col);
+		sprintf(data_buf, "%03d", (int)data);
+		for (index = 0; index < 3; index++)
+		{
+			lcd_write_dat(data_buf[index]); //写入数据
+		}
+	}
+	else {
+		lcd_write_dat((unsigned char)"E"); //写入数据出错
+	}
+}
+
+//Display a string
+void LCD_Display_string(int row, int col, unsigned char data[]){
+
+	int len = 0;
+	int index = 0;
+	for (; data[len] != '\0'; len++);
+
+	if (row == 1)
+	{
+		LcdWriteCom(0x80 + col); //设置第一行 数据地址指针
+		for (index = 0; index < len; index++)
+		{
+			lcd_write_dat(data[index]); //写入数据
+		}
+	}
+	else if (row == 2)
+	{
+		LcdWriteCom(0xc0 + col); //设置第二行 数据地址指针
+		for (index = 0; index < len; index++)
+		{
+			lcd_write_dat(data[index]); //写入数据
+		}
+	}
+	else {
+		lcd_write_dat((unsigned char)"E"); //写入数据出错
 	}
 }

@@ -2,7 +2,7 @@
 ..\obj\motor.o: ..\GECCODE\motor.h
 ..\obj\motor.o: ..\USER\stm32f4xx.h
 ..\obj\motor.o: ..\CODE\core_cm4.h
-..\obj\motor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\motor.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\motor.o: ..\CODE\core_cmInstr.h
 ..\obj\motor.o: ..\CODE\core_cmFunc.h
 ..\obj\motor.o: ..\CODE\core_cm4_simd.h

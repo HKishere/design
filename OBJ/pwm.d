@@ -2,7 +2,7 @@
 ..\obj\pwm.o: ..\GECCODE\pwm.h
 ..\obj\pwm.o: ..\USER\stm32f4xx.h
 ..\obj\pwm.o: ..\CODE\core_cm4.h
-..\obj\pwm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\pwm.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\pwm.o: ..\CODE\core_cmInstr.h
 ..\obj\pwm.o: ..\CODE\core_cmFunc.h
 ..\obj\pwm.o: ..\CODE\core_cm4_simd.h

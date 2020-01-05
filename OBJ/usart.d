@@ -2,7 +2,7 @@
 ..\obj\usart.o: ..\GECCODE\usart.h
 ..\obj\usart.o: ..\USER\stm32f4xx.h
 ..\obj\usart.o: ..\CODE\core_cm4.h
-..\obj\usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\usart.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\usart.o: ..\CODE\core_cmInstr.h
 ..\obj\usart.o: ..\CODE\core_cmFunc.h
 ..\obj\usart.o: ..\CODE\core_cm4_simd.h

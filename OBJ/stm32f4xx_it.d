@@ -2,7 +2,7 @@
 ..\obj\stm32f4xx_it.o: stm32f4xx_it.h
 ..\obj\stm32f4xx_it.o: stm32f4xx.h
 ..\obj\stm32f4xx_it.o: ..\CODE\core_cm4.h
-..\obj\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\stm32f4xx_it.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\stm32f4xx_it.o: ..\CODE\core_cmInstr.h
 ..\obj\stm32f4xx_it.o: ..\CODE\core_cmFunc.h
 ..\obj\stm32f4xx_it.o: ..\CODE\core_cm4_simd.h

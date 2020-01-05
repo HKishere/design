@@ -2,7 +2,7 @@
 ..\obj\lcd1602.o: ..\GECCODE\lcd1602.h
 ..\obj\lcd1602.o: ..\USER\stm32f4xx.h
 ..\obj\lcd1602.o: ..\CODE\core_cm4.h
-..\obj\lcd1602.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\lcd1602.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\lcd1602.o: ..\CODE\core_cmInstr.h
 ..\obj\lcd1602.o: ..\CODE\core_cmFunc.h
 ..\obj\lcd1602.o: ..\CODE\core_cm4_simd.h

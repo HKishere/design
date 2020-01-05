@@ -2,7 +2,7 @@
 ..\obj\exti.o: ..\GECCODE\exti.h
 ..\obj\exti.o: ..\USER\stm32f4xx.h
 ..\obj\exti.o: ..\CODE\core_cm4.h
-..\obj\exti.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\exti.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\exti.o: ..\CODE\core_cmInstr.h
 ..\obj\exti.o: ..\CODE\core_cmFunc.h
 ..\obj\exti.o: ..\CODE\core_cm4_simd.h

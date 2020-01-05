@@ -2,7 +2,7 @@
 ..\obj\delay.o: ..\GECCODE\delay.h
 ..\obj\delay.o: ..\USER\stm32f4xx.h
 ..\obj\delay.o: ..\CODE\core_cm4.h
-..\obj\delay.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\delay.o: G:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\delay.o: ..\CODE\core_cmInstr.h
 ..\obj\delay.o: ..\CODE\core_cmFunc.h
 ..\obj\delay.o: ..\CODE\core_cm4_simd.h
