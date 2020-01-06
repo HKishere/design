@@ -30,8 +30,8 @@
 
 void lcd1602_init(void);
 void lcd1602_write_command(char comm);
-void LCD1602WriteSpeed(unsigned char fl,unsigned char fr);
-void LCD_Display_string(int row, int col, unsigned char data[]);
+void LCD1602WriteSpeed(char *fl, char *fr);
 void LCD1602Write_In_A_Row(int row, int col, unsigned char data);
+void LCD_Display_string(int row, int col, unsigned char data[]);
 
 #endif

@@ -1,7 +1,8 @@
 #include "lcd1602.h"
+#include   "delay.h"
 //#include "interface.h"
 //#include "stm32f10x.h"
-//#include <stdio.h>
+#include <stdio.h>
 
 //全局变量定义
 unsigned char const table1[]="     WELCOME    ";
@@ -160,8 +161,8 @@ void lcd1602_init(void)
 	{
 		lcd_write_dat(table2[index]);  //写入数据             
 	}
-	delay_ms(100);//延时一段时间时间，等待LCD1602稳定	
-	LcdWriteCom(0x01);//清屏  
+	delay_ms(2000);//延时一段时间时间	
+	LcdWriteCom(0x01);//清屏 
 }
 
 /*******************************************************************************
@@ -176,25 +177,32 @@ void LCD1602WriteCommand(char comm)
 	lcd_write_dat(comm);  //写入数据   
 }
 
-void LCD1602WriteSpeed(unsigned char fl,unsigned char fr)
+void LCD1602WriteSpeed(char *fl, char *fr)
 {
-	char data_buf[4];
-	int index = 0;
-
-	data_buf[3] = 0;
-	sprintf(data_buf, "%03d", (int)fl);
+	int i=0;
+	char data_buf[7] = {'0'};
+	int index=0;	
 	LcdWriteCom(0x80+3);//设置第一行 数据地址指针
-	for (index = 0; index < 3; index++)
+  for( i=0;i<6;i++)
 	{
-		lcd_write_dat(data_buf[index]); //写入数据
+		data_buf[i]=*(fl++);
 	}
-
-	sprintf(data_buf, "%03d", (int)fr);
-	LcdWriteCom(0xc0 + 3); //设置第一行 数据地址指针
-	for (index = 0; index < 3; index++)
+//	LcdWriteCom(0x80+3);//设置第一行 数据地址指针
+	for(index=0;index<6;index++)
 	{
 		lcd_write_dat(data_buf[index]);  //写入数据             
 	}
+	
+
+//		LcdWriteCom(0xC0+3);//设置第2行 数据地址指针
+//	  for( i=0;i<7;i++)
+//	{
+//		data_buf[i]=*(fr++);
+//	}
+//	for(index=0;index<7;index++)
+//	{
+//		lcd_write_dat(data_buf[index]);  //写入数据             
+//	}
 }
 //show char to a confirm row
 //row = 1 show in first row , row = 2 show in second row 
@@ -211,7 +219,7 @@ void LCD1602Write_In_A_Row(int row, int col, unsigned char data){
 		sprintf(data_buf, "%03d", (int)data);
 		for (index = 0; index < 3; index++)
 		{
-			lcd_write_dat(data_buf[index]); //写入数据
+			lcd_write_dat(data_buf[index]); //????
 		}
 	}
 	else if (row == 2)
@@ -224,11 +232,11 @@ void LCD1602Write_In_A_Row(int row, int col, unsigned char data){
 		sprintf(data_buf, "%03d", (int)data);
 		for (index = 0; index < 3; index++)
 		{
-			lcd_write_dat(data_buf[index]); //写入数据
+			lcd_write_dat(data_buf[index]); //????
 		}
 	}
 	else {
-		lcd_write_dat((unsigned char)"E"); //写入数据出错
+		lcd_write_dat((unsigned char)"E"); //??????
 	}
 }
 
@@ -241,21 +249,21 @@ void LCD_Display_string(int row, int col, unsigned char data[]){
 
 	if (row == 1)
 	{
-		LcdWriteCom(0x80 + col); //设置第一行 数据地址指针
+		LcdWriteCom(0x80 + col); //????? ??????
 		for (index = 0; index < len; index++)
 		{
-			lcd_write_dat(data[index]); //写入数据
+			lcd_write_dat(data[index]); //????
 		}
 	}
 	else if (row == 2)
 	{
-		LcdWriteCom(0xc0 + col); //设置第二行 数据地址指针
+		LcdWriteCom(0xc0 + col); //????? ??????
 		for (index = 0; index < len; index++)
 		{
-			lcd_write_dat(data[index]); //写入数据
+			lcd_write_dat(data[index]); //????
 		}
 	}
 	else {
-		lcd_write_dat((unsigned char)"E"); //写入数据出错
+		lcd_write_dat((unsigned char)"E"); //??????
 	}
 }

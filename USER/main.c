@@ -10,21 +10,33 @@
 #include "usart.h"
 #include "lcd1602.h"
 
-uint16_t d;
-uint16_t test_num = 0xf2;
+char d_buff[7]={'0'};
+char test_num = 255;
 unsigned char text[] = "set";
+unsigned char temp_buff[3] = {'0'};
+unsigned char humi_buff[3] = {'0'};
+
+char i=0;
 void USART1_IRQHandler(void)
 {
-	if (USART_GetITStatus(USART1, USART_IT_RXNE) == SET)
+	if(USART_GetITStatus(USART1,USART_IT_RXNE) == SET)
 	{
-		d = USART_ReceiveData(USART1);
-		USART_SendData(USART1, d);
-		while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET)
-			; //USART_FLAG_TXE   register empty 清空文本框里面的数据然后再发
-			  //while(USART_GetFlagStatus(USART1,USART_FLAG_TC) == RESET);//USART_FLAG_TC   Complete将文本框里面的字符全部发送
+   
+		
+		d_buff[i++] = USART_ReceiveData(USART1);
+		USART_ClearITPendingBit(USART1,USART_IT_RXNE);
+		if(i==7)
+		i=0;
+		
+//		USART_SendData(USART1,d);
+//		while(USART_GetFlagStatus(USART1,USART_FLAG_TXE) == RESET);//USART_FLAG_TXE   register empty 清空文本框里面的数据然后再发
+	  //while(USART_GetFlagStatus(USART1,USART_FLAG_TC) == RESET);//USART_FLAG_TC   Complete将文本框里面的字符全部发送
 	}
-	USART_ClearITPendingBit(USART1, USART_IT_RXNE);
+	
+	
+//	USART_ClearITPendingBit(USART1,USART_IT_RXNE);
 }
+
 
 int main(void)
 {
@@ -38,29 +50,33 @@ int main(void)
 	//init_pwm();
 	Usart_init();
 	lcd1602_init();
-	while (1)
+	while(1)
 	{
-		if (d == '1')
-		{
-			PEout(2) = 0;
+
+//				USART_SendData(USART1,'g');
+//	    	while(USART_GetFlagStatus(USART1,USART_FLAG_TXE) == RESET);
+//			  USART_SendData(USART1,'4');
+//	    	while(USART_GetFlagStatus(USART1,USART_FLAG_TXE) == RESET);
+//				USART_SendData(USART1,'7');
+//	    	while(USART_GetFlagStatus(USART1,USART_FLAG_TXE) == RESET);
+//			  delay_s(1);
+
+
+//				LCD1602WriteSpeed(d_buff,&test_num);
+			temp_buff[0] = d_buff[1];
+			temp_buff[1] = d_buff[2];
+			temp_buff[2] = '\0';
+			humi_buff[0] = d_buff[4];
+			humi_buff[1] = d_buff[5];
+			humi_buff[2] = '\0';
+			LCD_Display_string(1, 0, "Temp:");
+			LCD_Display_string(1, 5, temp_buff);
+			LCD_Display_string(2, 0, "Humi:");
+			LCD_Display_string(2, 5, humi_buff);
+			delay_s(2);
+
+			test_num = test_num - 1;
 		}
-		if (d == '2')
-		{
-			PEout(2) = 1;
-		}
-		USART_SendData(USART1, 'g');
-		while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET)
-			;
-		USART_SendData(USART1, '4');
-		while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET)
-			;
-		USART_SendData(USART1, '7');
-		while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET)
-			;
-		delay_s(1);
-		LCD_Display_string(1, 2 ,"kishere");
-		LCD1602Write_In_A_Row(1,9, test_num);
-		delay_s(1);
-		test_num--;
-	}
+	
 }
+
